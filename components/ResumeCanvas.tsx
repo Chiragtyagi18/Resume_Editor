@@ -122,7 +122,7 @@ export const ResumeCanvas: React.FC<ResumeCanvasProps> = ({
                 Work Experience
               </h2>
               <div className="space-y-6">
-                {resume.experience.length > 0 ? resume.experience.map((exp, index) => (
+                {resume.experience.length > 0 ? resume.experience.map((exp,) => (
                   <div key={exp.id} className="relative">
                     {/* Timeline dot */}
                     <div className="absolute left-0 top-2 w-3 h-3 bg-blue-500 rounded-full"></div>
