@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Plus, Briefcase, Edit3, Trash2, Sparkles, Loader2, Check } from 'lucide-react';
+import { Plus, Briefcase, Trash2, Sparkles, Loader2, Check } from 'lucide-react';
 import { Experience } from '../types/resume';
 import { enhanceContent } from '../services/api';
 
