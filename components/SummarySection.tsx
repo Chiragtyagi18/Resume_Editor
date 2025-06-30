@@ -84,7 +84,7 @@ export const SummarySection: React.FC<SummarySectionProps> = ({
           <div className="text-center py-8 text-gray-500">
             <FileText className="h-12 w-12 mx-auto mb-4 text-gray-300" />
             <p>No professional summary added yet</p>
-            <p className="text-sm">Click "Summary" above to edit this section</p>
+            <p className="text-sm">Click &quot;Summary&quot; above to edit this section</p>
           </div>
         )}
 
@@ -92,7 +92,7 @@ export const SummarySection: React.FC<SummarySectionProps> = ({
           <div className="bg-gray-50 rounded-lg p-4">
             <p className="text-gray-700 text-sm line-clamp-3">{summary}</p>
             <div className="mt-3 pt-3 border-t border-gray-200">
-              <p className="text-xs text-gray-500">Click "Summary" above to edit or enhance with AI</p>
+                <p className="text-xs text-gray-500">Click &quot;Summary&quot; above to edit or enhance with AI</p>
             </div>
           </div>
         )}
