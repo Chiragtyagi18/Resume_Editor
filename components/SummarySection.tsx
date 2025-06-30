@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { FileText, Sparkles, Loader2, Edit3, Check } from 'lucide-react';
+import { FileText, Sparkles, Loader2, Check } from 'lucide-react';
 import { enhanceContent } from '../services/api';
 
 interface SummarySectionProps {
