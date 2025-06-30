@@ -61,7 +61,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUpload, isLoading 
                   Drag & drop or click to select • PDF or DOCX • Max 10MB
                 </p>
                 <p className="text-xs text-gray-400 mt-2">
-                  We'll extract and parse your actual resume content
+                 We&apos;ll extract and parse the actual content of your resume.
                 </p>
               </div>
             </>
