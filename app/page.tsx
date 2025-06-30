@@ -7,7 +7,6 @@ import { ResumeCanvas } from '@/components/ResumeCanvas';
 import { EditingPanel } from '@/components/EditingPanel';
 import { useResume } from '@/hooks/useResume';
 import {
-  FileText,
   Download,
   Upload,
   Eye,
