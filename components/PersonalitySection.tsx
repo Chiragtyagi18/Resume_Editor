@@ -165,7 +165,7 @@ export const PersonalInfoSection: React.FC<PersonalInfoSectionProps> = ({
               )}
             </div>
             <div className="mt-3 pt-3 border-t border-gray-200">
-              <p className="text-xs text-gray-500">Click "Personal" above to edit this information</p>
+                <p className="text-xs text-gray-500">Click &quot;Personal&quot; above to edit this information</p>
             </div>
           </div>
         )}
