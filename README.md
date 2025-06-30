@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📝 Resume Editor Web App
 
-## Getting Started
+A full-stack web application that allows users to upload, edit, enhance, and download resumes using AI suggestions. Built with **Next.js (App Router)** on the frontend and **FastAPI** on the backend, this app provides smart resume parsing, editing, and AI enhancement features.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔧 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Frontend (Next.js + TypeScript)
+- **Next.js 15+** (App Router, SSR/CSR)
+- **TypeScript**
+- **TailwindCSS** (for modern UI)
+- **React Hooks**
+- **Axios** (for API calls)
+- **pdfjs-dist** (PDF parsing)
+- **mammoth.js** (DOCX parsing)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Backend (FastAPI)
+- **FastAPI** (Python 3.11+)
+- **Pydantic** (request/response schema validation)
+- **CORS Middleware**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Features
 
-To learn more about Next.js, take a look at the following resources:
+- ✅ Upload resume in `.pdf` or `.docx` format
+- ✅ Auto-parsing of personal info, summary, experience, education, and skills
+- ✅ Editable UI for all parsed resume sections
+- ✅ Enhance any section with mock AI suggestions
+- ✅ Download resume data as `.json` (optionally extend to `.pdf` or `.docx`)
+- ✅ Resume history tracking (future scope)
+- ✅ Light/Dark mode toggle (optional UI polish)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```plaintext
+resume-editor/
+│
+├── frontend/
+│   ├── app/                  # Next.js App Router pages
+│   ├── components/           # Reusable components (Sections, Uploaders, Panels)
+│   ├── hooks/                # useResume.ts for global state
+│   ├── services/             # resumeParser.client.ts, api.ts
+│   ├── types/                # resume.d.ts
+│   ├── public/               # Icons, logos
+│   └── tailwind.config.ts    # Tailwind config
+│
+├── backend/
+│   ├── main.py               # FastAPI entry point
+│   └── models.py             # (Optional) Schema definitions
+│
+├── .gitignore
+├── README.md
+├── package.json
+└── vercel.json               # For deployment (if needed)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧠 Challenges Faced
+
+### 1. PDF Parsing on Server Crashes
+- `pdfjs-dist` throws `ReferenceError: DOMMatrix is not defined` on SSR.
+- ✅ **Solution:** Created a `resumeParser.client.ts` to isolate `pdfjs-dist` for client-side usage only.
+
+### 2. PDF Worker Fails on Vercel
+- CDN-loaded `pdf.worker.min.js` fails with 404.
+- ✅ **Solution:** Removed `GlobalWorkerOptions.workerSrc`, relied on default worker or inline one if needed.
+
+### 3. CORS Issues Between Frontend & Backend
+- FastAPI rejected frontend requests.
+- ✅ **Solution:** Added `CORSMiddleware` to allow both localhost and Vercel domain.
+
+### 4. Vercel Build Failure (Linting Errors)
+- ESLint errors like:
+  - `@typescript-eslint/no-unused-vars`
+  - `react/no-unescaped-entities`
+- ✅ **Solution:** Removed unused variables and escaped JSX quotes (`"` → `&quot;`)
+
+### 5. Resume Extraction Inconsistency
+- User resumes have inconsistent formats.
+- ✅ **Solution:** Built resilient regex matchers for experience, education, skills, and summary.
+
+---
+
+## 🔄 Deployment Instructions
+
+### 🔹 Frontend (Next.js on Vercel)
+
+1. Push your code to GitHub.
+2. Go to [https://vercel.com](https://vercel.com) and import the project.
+3. Select the frontend folder (`/frontend`) as root.
+4. Configure **Environment Variables** (if any).
+5. Deploy!
+
+✅ Your app will be live at `https://resume-editor-vert.vercel.app/`
+
+---
+
+### 🔹 Backend (FastAPI on Render)
+
+1. Push your backend to GitHub.
+2. Create a new **Web Service** on Render.
+3. Set:
+   - **Build Command:** `pip install -r requirements.txt`
+   - **Start Command:** `uvicorn main:app --host 0.0.0.0 --port 8000`
+4. Add CORS settings to allow the Vercel domain:
+```python
+allow_origins = ["https://resume-editor-vert.vercel.app/"]
