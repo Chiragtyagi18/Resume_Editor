@@ -350,7 +350,7 @@ export const EditingPanel: React.FC<EditingPanelProps> = ({
                 <div className="text-center py-8 text-gray-500">
                   <Briefcase className="h-12 w-12 mx-auto mb-4 text-gray-300" />
                   <p>No work experience added yet</p>
-                  <p className="text-sm">Click "Add Experience" to get started</p>
+                    <p className="text-sm">Click &quot;Add Experience&quot; to get started</p>
                 </div>
               )}
             </div>
@@ -455,7 +455,7 @@ export const EditingPanel: React.FC<EditingPanelProps> = ({
                 <div className="text-center py-8 text-gray-500">
                   <GraduationCap className="h-12 w-12 mx-auto mb-4 text-gray-300" />
                   <p>No education added yet</p>
-                  <p className="text-sm">Click "Add Education" to get started</p>
+                    <p className="text-sm">Click &quot;Add Education&quot; to get started</p>
                 </div>
               )}
             </div>
@@ -479,7 +479,7 @@ export const EditingPanel: React.FC<EditingPanelProps> = ({
               </button>
             </div>
             <div className="space-y-4">
-              {resume.skills.map((skill, index) => (
+              {resume.skills.map((skill,) => (
                 <div key={skill.id} className="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg bg-gray-50">
                   <div className="flex-1">
                     <input
@@ -525,7 +525,7 @@ export const EditingPanel: React.FC<EditingPanelProps> = ({
                 <div className="text-center py-8 text-gray-500">
                   <Award className="h-12 w-12 mx-auto mb-4 text-gray-300" />
                   <p>No skills added yet</p>
-                  <p className="text-sm">Click "Add Skill" to get started</p>
+                    <p className="text-sm">Click &quot;Add Skill&quot; to get started</p>
                 </div>
               )}
             </div>
