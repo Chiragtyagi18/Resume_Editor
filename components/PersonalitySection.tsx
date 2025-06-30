@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { User, Mail, Phone, MapPin, Linkedin, Globe, Edit3, Check } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Linkedin, Globe, Check } from 'lucide-react';
 import { PersonalInfo } from '../types/resume';
 
 interface PersonalInfoSectionProps {
