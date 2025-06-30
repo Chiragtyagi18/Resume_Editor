@@ -84,7 +84,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({
         </div>
 
         {!isExpanded && hasContent && (
-          <div className="space-y-4">
+          <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
             {Object.entries(groupedSkills).slice(0, 3).map(([category, categorySkills]) => (
               <div key={category}>
                 <h4 className="text-sm font-medium text-gray-700 mb-2">{category}</h4>
